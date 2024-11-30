@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Equation Solver</title>
+  <style>
+    body, html {
+      height: 100%;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+    }
+
+    .equation-container {
+      margin-top: 20px; /* Adjust the margin as needed */
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 50px;
+    }
+
+    label {
+      font-weight: bold;
+      display: block;
+      margin-top: 20px;
+    }
+
+    input {
+      width: 300px;
+      padding: 8px;
+      margin: 10px 0;
+      box-sizing: border-box;
+    }
+
+    button {
+      padding: 10px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    #result {
+      margin-top: 20px;
+      font-weight: bold;
+    }
+
+    .equation-container {
+      margin: 20px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      width: 300px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    label.error {
+      color: red;
+    }
+
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    th, td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: left;
+    }
+
+    th {
+      background-color: #f2f2f2;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <form method="post" action="">
+      <label for="equation">Enter Equation:</label>
+      <input type="text" id="equation" name="equation" placeholder="e.g., 2 + 2">
+      <button type="submit">Solve</button>
+      <% if(error){ %>
+      <label for="equation" class="error">Equation invalide.</label>
+      <% } %>
+    </form>
+  
+    <div class="equation-container">
+      <label for="equation">Equation:</label>
+      <span id="equation"><%= data.equation %></span>
+      <label for="res">Result:</label>
+      <span id="res"><%= data.res %></span>
+    </div>
+  </div>
+
+  <div>
+    <table>
+      <thead>
+        <tr>
+          <th>Equations connues: </th>
+          <th>Resultat : </th>
+        </tr>
+      </thead>
+      <tbody>
+    <% data.known.forEach(function(value, key){ %>
+        <tr>
+          <td><%= key %></td>
+          <td><%= value %></td>
+        </tr>
+    <% }) %>
+      </tbody>
+    </table>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Equations apprises : </th>
+          <th>Resultat : </th>
+        </tr>
+      </thead>
+      <tbody>
+    <% data.unknown.forEach(function(value, key){ %>
+        <tr>
+          <td><%= key %></td>
+          <td><%= value %></td>
+        </tr>
+    <% }) %>
+      </tbody>
+    </table>
+  </div>
+</body>
+</html>
