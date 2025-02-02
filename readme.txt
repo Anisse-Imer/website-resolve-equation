@@ -1,18 +1,9 @@
-# Anisse Imerzoukene - BUT3 - Groupe C - Base de données #
+# How to use :
+1) Go in the root folder.
+2) Cmd : docker-compose up
+3) Visit http://localhost:3000/
 
-Bonjour Monsieur.
-
-Mini Tuto :
-
-1) Aller dans le dossier du projet.
-2) Commande : docker-compose up
-3) Se rendre sur http://localhost:3000/
-
-Informations :
-
-Les algorithmes de calculs se trouvent dans "scripts/calcul.js".
-Il y a un algo sans sauvegarde dans la base "resolve" ainsi qu'un avec sauvegarde dans la base "resolveRedis".
-Rendez-vous dans les commentaires du code pour plus d'explication.
-
-Cordialement,
-Anisse Imerzoukene
+# Information :
+The calculation algorithms are located in "scripts/calcul.js".
+There is an algorithm without database saving called "resolve" and another one with database saving called "resolveRedis".
+Refer to the code comments for more details.
